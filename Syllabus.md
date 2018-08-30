@@ -108,3 +108,4 @@ Clustering, Decision Trees, Oblique trees, Classification problems, Bayesian ana
 classifier, Random forest, Gradient boosting Machines, Association rules learning, Apriori and FP-growth
 algorithms, Support vector Machines, Linear and Non liner classification, ARIMA, ML in real time, Neural
 Networks and its application, Neural Net & its applications<br>
+Note
