@@ -10,5 +10,3 @@ This repository contains notes of Big Data Analytics done from CDAC Aug-2018 Bat
 | 01       | right-aligned | $1600             |       |
 | 02       | centered      |   $12             |       |
 | 03       | are neat      |    $1             |       |
-
-## Module2-Python Programming
