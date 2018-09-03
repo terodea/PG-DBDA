@@ -1,4 +1,4 @@
-#include<stdio.h> 
+#include<stdio.h>
 #include<stdlib.h>
 int find_length(char string[]) {
     int len = 0,i;
@@ -40,16 +40,21 @@ void copy_string(char destination[], char source[]) {
   destination[i] = '\0';
 }
 /*Reverse function*/
-int reverse(char string1[]){
-	int len,i;
-	char temp[len];
-	len=find_length(string1);
-	for(i=len;i>=0;i--){
-	temp[i]=string1[i];
-	}
-temp[i]='\0';
-}
-int main() {
+int reverse()
+{
+   char s[1000], r[1000];int begin, end, count = 0;
+   printf("Input a string\n");
+   gets(s);
+   while (s[count] != '\0')
+      count++;
+   end = count - 1;
+   for (begin = 0; begin < count; begin++) {
+      r[begin] = s[end];
+      end--;
+   }
+   r[begin] = '\0';
+   printf("%s\n", r);
+}int main() {
   char string1[20], string2[20]; //string variables declaration with size 20
   int choice;
   while (1) {
@@ -86,9 +91,8 @@ int main() {
       printf("String2 = %s", string2);
       break;
     case 5:
-	printf("Enter a string: ");
-	scanf("%s",string1);
-	printf("The reverse of string is: %s",reverse(string1));
+      reverse();
+      printf("The reverse of string is: %s",reverse());
     case 6:
       exit(0);
     }

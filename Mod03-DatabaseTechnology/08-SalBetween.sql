@@ -1,0 +1,2 @@
+SELECT * FROM emp
+WHERE sal BETWEEN 3000 and 7000;
