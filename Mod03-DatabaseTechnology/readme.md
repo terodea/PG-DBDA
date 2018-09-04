@@ -1,1 +1,1 @@
-#### Note : Content comming soon.
+#### SQL Querry Implementation
