@@ -1,0 +1,4 @@
+Do this when you've stored your pakcage somewhere else
+export CLASSPATH=.:.. (where after (pwd i.e .): means-location)
+
+
