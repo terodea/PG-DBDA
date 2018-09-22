@@ -5,9 +5,9 @@ This repository contains notes of Big Data Analytics done from CDAC Aug-2018 Bat
 **Syllabus**<br>
 ## Module1-Fundamentals Of Linux Programming
 
-| Sr. No   | Command       | Solution          | Cool  |
+| Sr. No   | Utilities     | Solution          | Remarks |
 | -------- |:------------- |:-----------------:| -----:|
-| 01       | right-aligned | $1600             |       |
+| 01       | Demo          | [Solution](./Mod01-Linux/Utilities/Demo.sh) | |
 | 02       | centered      |   $12             |       |
 | 03       | are neat      |    $1             |       |
 
