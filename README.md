@@ -67,7 +67,7 @@ This repository contains notes of Big Data Analytics done from CDAC Aug-2018 Bat
 
 ## Module4-Python Programming
 
-| Sr. No   | Work          | Solution          | Cool  |
+| Sr. No   | Work          | Solution          | Remarks|
 | -------- |:------------- |:-----------------:| -----:|
 | 01       | Day-1         |[Solution](./Mod04-Python/ClassNotes/Day1.ipynb)||
 | 02       | Day-2         |[Solution](./Mod04-Python/ClassNotes/Day2.ipynb)||
@@ -82,7 +82,7 @@ This repository contains notes of Big Data Analytics done from CDAC Aug-2018 Bat
 
 ## Module5-JAVA With Scala
 
-| Sr. No   | Command       | Solution          | Cool  |
+| Sr. No   | Command       | Solution          |Remarks|
 | -------- |:------------- |:-----------------:| -----:|
 | 01       | Hello         |[Solution](./Mod05-JAVAWithScala/01-Java/01-Day1/Hello.java)||
 | 02       | Date          |[Solution](./Mod05-JAVAWithScala/01-Java/01-Day1/Date.java)||
