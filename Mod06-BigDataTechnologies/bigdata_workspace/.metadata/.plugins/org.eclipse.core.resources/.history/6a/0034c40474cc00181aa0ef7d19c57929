@@ -1,0 +1,25 @@
+package util;
+
+import java.io.IOException;
+
+import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class Reduce extends Reducer<LongWritable, FloatWritable, LongWritable, FloatWritable>
+{
+	public void reduce(LongWritable key,Iterable<FloatWritable> value,Context ctx) throws IOException,InterruptedException
+	{
+		Double max=0.0;
+		for(DoubleWritable v:value)
+		{
+			max=Math.max(max, v.get());
+		}
+		ctx.write(key, new DoubleWritable(max));
+		
+			
+		
+	}
+
+}

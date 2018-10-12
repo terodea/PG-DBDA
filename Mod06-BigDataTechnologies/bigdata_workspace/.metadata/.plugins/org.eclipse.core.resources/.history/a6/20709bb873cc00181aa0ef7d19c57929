@@ -1,0 +1,24 @@
+package util;
+
+import java.io.IOException;
+
+import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class Map extends Mapper<LongWritable, Text, LongWritable, FloatWritable> 
+{
+	public void map(LongWritable key,Text value,Context ctx)throws IOException,InterruptedException
+	{
+		String[] tokens = value.toString().split(",");
+		long year = Long.parseLong(tokens[2].toString().substring(0,4));
+		float temp = Float.parseFloat(tokens[3].toString());
+		for(int i =0;i<tokens.length;i++)
+		{
+			ctx.write(new LongWritable(year),new FloatWritable(temp));
+		}
+		
+	}
+
+}

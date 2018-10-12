@@ -1,0 +1,40 @@
+package util;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.FileOutputFormat;
+import org.apache.hadoop.mapred.JobConf;
+import org.apache.hadoop.mapred.TextOutputFormat;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+
+public class Weather {
+
+public static void main(String[] args) {
+    JobConf conf=new JobConf();
+    Job job;
+    try {
+        job = new Job(conf,"WeatherDataExtraction");
+        job.setJobName("WeatherDataExtraction");
+        job.setMapperClass(Map.class);
+        job.setReducerClass(Reduce.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        FileInputFormat.addInputPath(job,new    Path("/home/student/Desktop/Weather.csv"));
+        FileOutputFormat.setOutputPath(conf,new Path("/"));
+        try {
+            job.waitForCompletion(true);
+        } catch (ClassNotFoundException | IOException | InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}
+}
