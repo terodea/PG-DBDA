@@ -1,0 +1,15 @@
+//import java.io.IOException;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+public class HadoopConfig {
+	public static void main(String[] args) throws Exception {
+		Configuration conf = new Configuration();
+		FileSystem hdfs=FileSystem.get(conf);
+		Path hdfsPath = hdfs.getWorkingDirectory();
+		Path rootPath=new Path("/output");
+		hdfs.delete(new Path(hdfsPath,new Path("output")),true);
+		System.out.println(hdfsPath.toString());
+	}
+}

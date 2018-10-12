@@ -1,0 +1,15 @@
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+public class HadoopConfig {
+
+	public static void main(String[] args) {
+		Configuration conf = new Configuration();
+		FileSystem hdfs=FileSystem.get(conf);
+		Path hdfsPath = hdfs.getWorkingDirectory();
+		hdfs.delete(new Path(hdfsPath,new Path("output")),true);
+
+	}
+
+}

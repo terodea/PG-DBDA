@@ -1,0 +1,45 @@
+package apps;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+
+import util.WordMapper;
+
+public class WordCount {
+
+	public static void main(String[] args) throws Exception{
+		Configuration conf= new Configuration();
+		FileSystem hdfs=FileSystem.get(conf);
+	
+		@SuppressWarnings("deprecation")
+		Job job = new Job(conf,"Word Count Program");
+		job.setJarByClass(WordCount.class);
+		job.setMapperClass(WordMapper.class);
+		job.setReducerClass(WordReducer.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+
+		Path workingDirectory=hdfs.getWorkingDirectory();
+		//hdfs.copyFromLocalFile("/home/student/Desktop/loaddata1",workingDirectory);
+		//Path working = new Path(workingDirectory,"/loaddata1");
+		//Path outputDir = new Path(workingDirectory,"/countDir3");
+		
+		
+		job.setInputFormatClass(KeyValueTextInputFormat.class);
+		job.setOutputFormatClass(TextOutputFormat.class);
+		Path working = new Path(workingDirectory,"/loaddata1");
+		Path outputDir = new Path(workingDirectory,"/countDir3");
+		FileInputFormat.addInputPath(job,working);
+		FileOutputFormat.setOutputPath(job,outputDir);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+	}
+
+}

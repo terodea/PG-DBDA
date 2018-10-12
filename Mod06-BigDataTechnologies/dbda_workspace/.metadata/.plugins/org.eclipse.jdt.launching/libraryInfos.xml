@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="/usr/lib/java/jdk-1.8.0_181" version="1.8.0_181">
+<bootpath>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/resources.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/rt.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/jsse.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/jce.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/charsets.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/jfr.jar"/>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/lib/java/jdk-1.8.0_181/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
