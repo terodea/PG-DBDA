@@ -1,8 +1,8 @@
 # UDF in Hive
 
 ## Definition : <br>
-	Creating UDF requires writing Java class and overloading the evaluate() method, which is a part of the<br>
-		**org.apache.hadoop.hive.ql.exec.UDF**<br>
+	Creating UDF requires writing Java class and overloading the evaluate() method, which is a part of the
+		"org.apache.hadoop.hive.ql.exec.UDF"
 		class that is extended to modify default behaviour of evaluate() method.
 
 ***Step 1:-->*** Creation of Java Classs<br>
