@@ -26,7 +26,7 @@
 #### Example for How to run UDF in HIVE ?
 
 ```
-	add jar /home/student/Desktop/UDF.jar;
-	create temporary function stringtest as 'util.TestUDF';
-	select stringtest(sname,'Akshay') from attend;
+	ADD JAR /home/student/Desktop/UDF.jar;
+	CREATE TEMPORARY FUNCTION stringtest AS 'util.TestUDF';
+	SELECT stringtest(sname,'Akshay') FROM attend;
 ```
