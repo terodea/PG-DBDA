@@ -26,7 +26,7 @@
 
 
 ***Add ----> hive-site.xml***<br>
-```
+```markdown
 <property>
 	<name>system:java.io.tmpdir</name>
     <value>/tmp/hive/java</value>
@@ -37,7 +37,7 @@
 </property>
 ```
 2. 
-	```
+	```bash
 	rm -rf $HIVE_HOME/bin/metastore_db
 	$HIVE_HOME/bin/schematool -initSchema -dbType derbys
 	```
