@@ -37,7 +37,7 @@
 </property>
 ```
 2. 
-	```bash
+	```Shell
 	rm -rf $HIVE_HOME/bin/metastore_db
 	$HIVE_HOME/bin/schematool -initSchema -dbType derbys
 	```
