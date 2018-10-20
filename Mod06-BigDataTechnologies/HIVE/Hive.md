@@ -16,3 +16,11 @@
 
 ***Step 3:-->*** Use the UDF<br>
 				SELECT function_name(<column_name>)FROM <table_name>;
+
+
+#### Example for How to run UDF in HIVE ?
+'''
+add jar /home/student/Desktop/UDF.jar;
+create temporary function stringtest as 'util.TestUDF';
+select stringtest(sname,'Akshay') from attend;
+'''
