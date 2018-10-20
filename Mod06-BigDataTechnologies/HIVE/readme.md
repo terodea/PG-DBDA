@@ -25,7 +25,8 @@
 1. Exception in thread "main" java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: ${system:java.io.tmpdir%7D/$%7Bsystem:user.name%7D
 
 
-***Add ----> hive-site.xml***
+***Add ----> hive-site.xml***<br>
+```
 <property>
 	<name>system:java.io.tmpdir</name>
     <value>/tmp/hive/java</value>
@@ -34,7 +35,7 @@
 	<name>system:user.name</name>
     <value>${user.name}</value>
 </property>
-
+```
 2. 
 	rm -rf $HIVE_HOME/bin/metastore_db 
 $HIVE_HOME/bin/schematool -initSchema -dbType derbys
