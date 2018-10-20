@@ -37,7 +37,8 @@
 </property>
 ```
 2. 
-	rm -rf $HIVE_HOME/bin/metastore_db 
-$HIVE_HOME/bin/schematool -initSchema -dbType derbys
-
+	```
+	rm -rf $HIVE_HOME/bin/metastore_db
+	$HIVE_HOME/bin/schematool -initSchema -dbType derbys
+	```
 
