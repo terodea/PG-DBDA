@@ -1,4 +1,5 @@
 # UDF in Hive
+@ Author : AKSHAY TERODE
 
 ## Definition : <br>
 	Creating UDF requires writing Java class and overloading the evaluate() method, which is a part of the

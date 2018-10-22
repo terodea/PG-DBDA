@@ -1,4 +1,5 @@
 # HIVE
+@ Author AKSHAY TERODE
 
 ## STEPS to configure HIVE
 
