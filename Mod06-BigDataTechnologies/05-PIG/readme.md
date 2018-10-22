@@ -105,11 +105,10 @@
 
 
 # How to run Pig Latin scripts ?
--Local Mode
+- Local Mode
 	-
 - MapReduce Mode
 - Batch Mode
 	-Pig -x local my_pig_script.pig
 	-Pig -x mapreduce my_pig_script.pig
 - Interactive Mode: use the Pig shell to run script
-	-
