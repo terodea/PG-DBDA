@@ -1,10 +1,12 @@
 # Multi Node Cluster Setup In HADOOP
 
 ***NOTE :*** 
+- This document catters the need of Unix(Ubuntu) based system.
 - Minimum two systems required.
 - JAVA setup in both systems(JAVA_HOME should be same in all the systems)
-- Master should have Hadoop Configured slaves need not have Hadoop configured.
-- Make sue that HDFS is not running or stopped "./stop-dfs".
+- Set up "JAVA_HOME" in "~/.bashrc".
+- Master should have 'Hadoop Configured' slaves need not have Hadoop configured.
+- Make sue that HDFS is not running or stopped "./stop-dfs.sh".
 - Take backup of "Hadoop_Home" of all (both master and slaves).
 
 
@@ -27,12 +29,19 @@
 	$ sudo gedit /etc/hosts
 ```
 - Add the ip address and names for each of the machines in network.
+- You can get the ip address by
+	-
+		```
+			ifconfig
+		```
+	- Note down the "inet addr" something like "192.168.1.156".
 - Eg: 
 	```
 		172.25.12.178 master-system-name
 		172.25.12.188 slave-system-name
 	```
 ### Step 4:- Generating Public Key (On the master)
+
 - ****Step 1:-**** Create public key
 	- 
 		```
@@ -46,6 +55,9 @@
 		```
 			$ ssh-copy-id -i <path-to-.pub-file> admin@slave
 		```
+	- Generally the "id_rsa" is saved in "/home/your-username/.ssh/id_rsa" location.
+	- admin - your system name
+	- slave - your system's user name
 	- Ex : 
 		```
 			$ ssh-copy-id -i /home/student/.ssh/id_rsa student@DBDA-L14
@@ -57,7 +69,7 @@
 		```
 			$ sudo chmod 0600 ~/.shh/authorized_keys
 		```
-	- You have to obtain super user access on master for this step.
+	- ***Note*** You have to obtain super user access on master for this step.
 
 ### Step 5:- Download Hadoop (On master)
 - Don't download if you already have one; but don't forget to keep the backup of hadoop
@@ -76,6 +88,7 @@
 				<value>false</value>
 			</property>
 		```
+	- ***Note*** 'master-ip' can be found in "/etc/Hosts" if already setup.
 
 - Configure "hdfs-site.xml"
 	-
@@ -94,6 +107,12 @@
 				<value>1</value>
 			</property>
 		```
+	- ***Note*** You have to manually create "/home/your-user-name/hadoop/dfs/data" and "/home/your-user-name/hadoop/dfs/name".
+		-
+			```
+				$ sudo mkdir -p /home/your-user-name/hadoop/dfs/data
+				$ sudo mkdir -p /home/your-user-name/hadoop/dfs/name
+			```
 - Configure "mapred-site.xml"
 	- 
 		```
@@ -107,7 +126,8 @@
 	```
 		$ scp -r $HADOOP_HOME slave:/path/to/copy
 	```
--
+- slave is the name entered in "/etc/Hosts" file
+- Ex :
 	```
 		$ scp -r $HADOOP_HOME DBDA-L10:/home/student/Hadoop_Home/hadoop-2.8.5
 	```
@@ -116,6 +136,7 @@
 	```
 		$ sudo gedit $HADOOP_HOME/etc/hadoop/slaves
 	```
+- - ***NOTE*** Setup "Hadoop_Home" in ~/.bashrc.
 
 ### Step 9:- Format namenode (Master only)
 - 
@@ -123,6 +144,7 @@
 		$ cd $Hadoop_Home/bin
 		$ hadoop namenode -format
 	```
+- ***NOTE*** Setup "Hadoop_Home" in ~/.bashrc.
 - It might as for (yes/no) option. Enter 'yes'.
 
 ### Step 10:- Start HDFS 
@@ -131,3 +153,6 @@
 		$ cd $Hadoop_Home/sbin
 		$ ./start-dfs.sh
 	```
+- ***NOTE*** Setup "Hadoop_Home" in ~/.bashrc.
+
+## We have just added only one slave, if we want to add multiple slaves; then add slaves name and ip in "/etc/hosts" file and enter "hdfs-ste.xml" "hadoop-master-ip" in "fs.default.name" value field.

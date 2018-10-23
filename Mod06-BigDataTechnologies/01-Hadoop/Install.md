@@ -5,7 +5,7 @@
 ### Setting Up HADOOP for the first time.
 
 
-***STEP-1 :*** Install JAVA if not installed. <br> 
+***STEP-1 :*** Install JAVA if not installed. <br>
 ***STEP-2 :*** Extract "hadoop-version.tar.gz" <br>
 ***STEP-3 :*** Configure "hdfs-site.xml","core-site.xml","hdfs-env.sh". <br>
 ***STEP-4 :*** Add appropriate environment variables in "~/.bashrc". <br>
