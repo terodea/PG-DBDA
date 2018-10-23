@@ -11,8 +11,8 @@
 
 ### Step 1:- Creation of new user 
 ```
-	adduser admin
-	passwd admin
+	$ adduser admin
+	$ passwd admin
 ```
 
 ### Step 2:- Change user to new user
@@ -36,7 +36,7 @@
 - ****Step 1:-**** Create public key
 	- 
 		```
-			ssh-keygen -t rsa
+			$ ssh-keygen -t rsa
 		```
 	- Press "ENTER" for all the values (let it be default)
 	- Don't forget to copy the ".pub" file name path and passkey(Enter for default)
@@ -44,18 +44,18 @@
 - ****Step 2:-**** Copy public key on all datanode machines
 	-
 		```
-			ssh-copy-id -i <path-to-.pub-file> admin@slave
+			$ ssh-copy-id -i <path-to-.pub-file> admin@slave
 		```
 	- Ex : 
 		```
-			ssh-copy-id -i /home/student/.ssh/id_rsa student@DBDA-L14
+			$ ssh-copy-id -i /home/student/.ssh/id_rsa student@DBDA-L14
 		```
 
 - ****Step 3:-**** Change the mod of the keys repository 
 	- Giving Permission to "Owner for read(R) and write(W)"
 	-
 		```
-			sudo chmod 0600 ~/.shh/authorized_keys
+			$ sudo chmod 0600 ~/.shh/authorized_keys
 		```
 	- You have to obtain super user access on master for this step.
 
@@ -105,29 +105,29 @@
 ### Step 7:- Copy Hadoop from master to all datanodes
 - 
 	```
-		scp -r $HADOOP_HOME slave:/path/to/copy
+		$ scp -r $HADOOP_HOME slave:/path/to/copy
 	```
 -
 	```
-		scp -r $HADOOP_HOME DBDA-L10:/home/student/Hadoop_Home/hadoop-2.8.5
+		$ scp -r $HADOOP_HOME DBDA-L10:/home/student/Hadoop_Home/hadoop-2.8.5
 	```
 ### Step 8:- Add datanodes on master
 - Add the names of all hosts that are going to act as datanodes.
 	```
-		sudo gedit $HADOOP_HOME/etc/hadoop/slaves
+		$ sudo gedit $HADOOP_HOME/etc/hadoop/slaves
 	```
 
 ### Step 9:- Format namenode (Master only)
 - 
 	```
-		cd $Hadoop_Home/bin
-		hadoop namenode -format
+		$ cd $Hadoop_Home/bin
+		$ hadoop namenode -format
 	```
 - It might as for (yes/no) option. Enter 'yes'.
 
 ### Step 10:- Start HDFS 
 -
 	```
-		cd $Hadoop_Home/sbin
-		./start-dfs.sh
+		$ cd $Hadoop_Home/sbin
+		$ ./start-dfs.sh
 	```
