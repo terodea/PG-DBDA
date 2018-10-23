@@ -1,6 +1,6 @@
 # Multi Node Cluster Setup In HADOOP
 
-***NOTE : *** 
+***NOTE :*** 
 - Minimum two systems required.
 - JAVA setup in both systems(JAVA_HOME should be same in all the systems)
 - Master should have Hadoop Configured slaves need not have Hadoop configured.
