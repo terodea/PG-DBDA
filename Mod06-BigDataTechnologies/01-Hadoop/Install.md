@@ -1,9 +1,6 @@
 ## HADOOP
 
-
-
 ### Setting Up HADOOP for the first time.
-
 
 ***STEP-1 :*** Install JAVA if not installed. <br>
 ***STEP-2 :*** Extract "hadoop-version.tar.gz" <br>
@@ -14,7 +11,6 @@
 		***NOTE :*** Enter system password 3 time if asked.<br>
 ***STEP-7 :*** Open "localhost:50070" If Hadoop GUI visible hadoop is running. <br>
 ***STEP-8 :*** hadoop/sbin >>> ./stop-dfs.sh To stop the hadoop from running. <br>
-
 
 ***NOTE*** For error Connection refused 22 : localhost not reachable <br>
 		***Install "openssh"*** <br>

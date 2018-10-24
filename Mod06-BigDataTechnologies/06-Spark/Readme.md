@@ -1,13 +1,13 @@
 # Spark
 
-***Def:-*** Apache Spark is a fast and general-purpose cluster computing system. It provides high-level APIs in Java, Scala, Python and R, and an optimized engine that supports general execution graphs. It also supports a rich set of higher-level tools including Spark SQL for SQL and structured data processing, MLlib for machine learning, GraphX for graph processing, and Spark Streaming.
+***Def :-*** Apache Spark is a fast and general-purpose cluster computing system. It provides high-level APIs in Java, Scala, Python and R, and an optimized engine that supports general execution graphs. It also supports a rich set of higher-level tools including Spark SQL for SQL and structured data processing, MLlib for machine learning, GraphX for graph processing, and Spark Streaming.
 
 - Spark is an in-memory tool.
 - Spark is used for processing not for storing data.
 - Worker threads 
 - Sparks become faster by reducing the number of write in/write out.
 
-## Spark Components
+## Spark Components :
 - RDD : Resilient Distribuited Dataset
 	- Any data you will be having will be processed in RDD.
 	- It is a fault tolerant dataset.
@@ -20,7 +20,7 @@
 - Lineage Graph : 
 
 
-## Spark Structure
+## Spark Structure :
 
 - Driver Program
 	- SparkContext : It acts as a scheduler(Job in Driver class).From the client side it is the only way to communicate with the client.Whenever you want to connect with spark you'll always need it.
@@ -31,7 +31,8 @@
 	- Cache
 	- Task : One task will be executed on one partition.
 
-## Spark Flow
+## Spark Flow :
+
 - Each application gets its own executor processes, which stay up for the duration of the whole application and run tasks in multiple threads.
 - This has the benefit of isolating applications from each other, on both the scheduling side(each driver schedule its own tasks) and executor side (tasks from different applications run in different JVMs).
 - However, it also means that data can't be shared across different Spark application(instances of SparkContext) without writing it to an external storage system.
@@ -58,8 +59,26 @@
 		val wordCounts = textFile.flatMap(line => line.split("")).map(word,1).reduceByKey((a,b) => a+b)
 		wordCounts.collect()
 	```
+-
+	```
+		text_file = sc.textFile("hdfs://...")
+		counts = text_file.flatMap(lambda line:line.split(" ")).map(lambda word:(word,1)).reduceByKey(lambda a,b: a + b)counts.saveAsTextFile("hdfs://...")
+	```
 
 
-## Transforamtion
+## Transforamtion :
+
 - Each of the process we're going to run on the data is called as transformation.
 - Each transformation creates a new RDD.
+- Sample Transforamtion:
+	- map(func)
+	- filter(func)
+	- uniuon(otherDataset)
+	- intersection(otherDataset)
+	- distinct([numTasks])
+	- join(otherDataset,[numTasks])
+
+## Drawbacks :
+
+- Less suitable for applications that make asynchronous fine-grained updates to shared data.
+- RDDs are best suited for applications that apply the same operation to all elements of a dataset.
