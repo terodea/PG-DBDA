@@ -1,11 +1,11 @@
 # Spark
-***Def:-***Apache Spark is a fast and general-purpose cluster computing system. It provides high-level APIs in Java, Scala, Python and R, and an optimized engine that supports general execution graphs. It also supports a rich set of higher-level tools including Spark SQL for SQL and structured data processing, MLlib for machine learning, GraphX for graph processing, and Spark Streaming.
+
+***Def:-*** Apache Spark is a fast and general-purpose cluster computing system. It provides high-level APIs in Java, Scala, Python and R, and an optimized engine that supports general execution graphs. It also supports a rich set of higher-level tools including Spark SQL for SQL and structured data processing, MLlib for machine learning, GraphX for graph processing, and Spark Streaming.
 
 - Spark is an in-memory tool.
 - Spark is used for processing not for storing data.
 - Worker threads 
 - Sparks become faster by reducing the number of write in/write out.
-- 
 
 ## Spark Components
 - RDD : Resilient Distribuited Dataset
@@ -58,3 +58,8 @@
 		val wordCounts = textFile.flatMap(line => line.split("")).map(word,1).reduceByKey((a,b) => a+b)
 		wordCounts.collect()
 	```
+
+
+## Transforamtion
+- Each of the process we're going to run on the data is called as transformation.
+- Each transformation creates a new RDD.
