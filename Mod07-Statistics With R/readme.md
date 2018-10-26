@@ -1,16 +1,17 @@
 # R
 
 ## Basics Of Stats
-- X1,X2,.....,Xn : Values
-- Xi : ith value
-- Mean (mu) = (Sum Xi)/N
-- Xi - mu : Deviation from mean
+- <a href="https://www.codecogs.com/eqnedit.php?latex=X_{1},X_{2},X_{3}.....,X_{N}&space;:&space;Values" target="_blank"><img src="https://latex.codecogs.com/gif.latex?X_{1},X_{2},X_{3}.....,X_{N}&space;:&space;Values" title="X_{1},X_{2},X_{3}.....,X_{N} : Values" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=X_{i}&space;:&space;i^{th}&space;value" target="_blank"><img src="https://latex.codecogs.com/gif.latex?X_{i}&space;:&space;i^{th}&space;value" title="X_{i} : i^{th} value" /></a>
+- Mean :
+    - <a href="https://www.codecogs.com/eqnedit.php?latex=\mu&space;=&space;\frac{\sum_{N}^{i=1}}{N}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu&space;=&space;\frac{\sum_{N}^{i=1}}{N}" title="\mu = \frac{\sum_{N}^{i=1}}{N}" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=X_{i}&space;-&space;\mu" target="_blank"><img src="https://latex.codecogs.com/gif.latex?X_{i}&space;-&space;\mu" title="X_{i} - \mu" /></a> : Deviation from mean
     - Problem : Sum(Xi - mu)
         - summing mu N times.So it will be mu*N.
         - sum Xi - Xi = 0
-- | Xi - mu | : Absolute deviation from mean.
-- Avg(|xi - mu|) : Mean deviation from mu
-    - {sum(|xi - mu|)}/N
+- <a href="https://www.codecogs.com/eqnedit.php?latex=|&space;X_{i}&space;-&space;\mu&space;|" target="_blank"><img src="https://latex.codecogs.com/gif.latex?|&space;X_{i}&space;-&space;\mu&space;|" title="| X_{i} - \mu |" /></a> : Absolute deviation from mean.
+- Mean Deviation
+    - <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{|&space;X_{i}&space;-&space;\mu&space;|}{N}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{|&space;X_{i}&space;-&space;\mu&space;|}{N}" title="\frac{| X_{i} - \mu |}{N}" /></a>
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i=1}^{N}&space;=&space;X_{i}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^{N}&space;=&space;X_{i}" title="\sum_{i=1}^{N} = X_{i}" /></a>
 ## Measure of desperssion
 - Range
