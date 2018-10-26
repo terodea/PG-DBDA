@@ -39,9 +39,21 @@
         - skewed to left.
         - symmetric or unskewed.
         - skewed to right.
+    - Coefficient Of Skewness(CS):
+        - <a href="https://www.codecogs.com/eqnedit.php?latex=CS&space;=&space;\frac{1}{N}&space;\sum_{i=1}^{N}(x_{i}&space;-&space;)^3&space;/\sigma&space;^3" target="_blank"><img src="https://latex.codecogs.com/gif.latex?CS&space;=&space;\frac{1}{N}&space;\sum_{i=1}^{N}(x_{i}&space;-&space;)^3&space;/\sigma&space;^3" title="CS = \frac{1}{N} \sum_{i=1}^{N}(x_{i} - )^3 /\sigma ^3" /></a>
+        - CS is +ve for right-skewed data.
+        - CS is -ve for left-skewed data.
+        - |CS| > 1 suggests high degree of skewness.
+        - 0.5 <= |CS| <= 1 suggests moderate skewness.
+        - |CS| < 0.5 suggests realtive symmetry.
 - Kurtosis
     - Measure of flatness or peakedness of a frequency of distribution
         - Platykurtic (relatively flat)
         - Mesokurtic (normal)
         - Lepotkurtic (relatively peaked)
+    - Coefficient of kurtosis (CK):
+        - <a href="https://www.codecogs.com/eqnedit.php?latex=CS&space;=&space;\frac{1}{N}&space;\sum_{i=1}^{N}(x_{i}&space;-&space;)^4&space;/\sigma&space;^4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?CS&space;=&space;\frac{1}{N}&space;\sum_{i=1}^{N}(x_{i}&space;-&space;)^4&space;/\sigma&space;^4" title="CS = \frac{1}{N} \sum_{i=1}^{N}(x_{i} - )^4 /\sigma ^4" /></a>
+        - CK < 3 indicates data is somewhat flat with a wide degree of dispersion.
+        - CK > 3 indicates data si somehwat peaked with less dispersion
+        - R function : kurtosis(numeric vector)
 
