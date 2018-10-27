@@ -117,3 +117,13 @@ listfct <-lapply(Housing, is.factor)
 facts <- unlist(listfct)
 HousingFact <- Housing[,facts]
 HousingFact
+
+
+#################################
+males <-c(123,24,17,52,8)
+females <- c(86,8,10,73,4)
+rb <- rbin(males,females)
+colnames(rb) <- c("Canada","US","Europe","Asia","Other")
+
+prop.table(rb)
+addmargins(prop.table(rb))
