@@ -31,7 +31,7 @@
 - The ratio of SD and Mean
 - CV is unit less quantity
 - CV = (SD/MEAN)*100
-- CV =(sigma/mu)*100
+- <a href="https://www.codecogs.com/eqnedit.php?latex=CV&space;=&space;\frac{\sigma&space;}{\mu&space;}&space;*&space;100" target="_blank"><img src="https://latex.codecogs.com/gif.latex?CV&space;=&space;\frac{\sigma&space;}{\mu&space;}&space;*&space;100" title="CV = \frac{\sigma }{\mu } * 100" /></a>
 - Lesser the quantity, more is the variance.
 
 ## Skewness and Kurtosis
