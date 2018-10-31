@@ -29,3 +29,18 @@
 ### Law Of Large Numbers
 
 ### Sampling Distributions
+
+## Central Limit Theorem
+- The CLT states that the sampling distribution of the mean of any independent, random variable will be normal or nearly normal, if the sample size is large enough.
+- In practice, some statistics practitioners say that a sample size of 30 is large enough for the population distribution o be roughly bell-shaped.
+- Hence, we can state population parameters for distribution of means as :
+    - <a href="https://www.codecogs.com/eqnedit.php?latex=E(x)&space;=&space;\mu" target="_blank"><img src="https://latex.codecogs.com/gif.latex?E(x)&space;=&space;\mu" title="E(x) = \mu" /></a>
+    - <a href="https://www.codecogs.com/eqnedit.php?latex=Var(x)&space;=&space;\frac{\sigma^2&space;}{n}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Var(x)&space;=&space;\frac{\sigma^2&space;}{n}" title="Var(x) = \frac{\sigma^2 }{n}" /></a>
+
+    -
+        ```
+            size <- 2000
+            h<- array(dim=c(50,size))
+        ```
+## ESTIMATE TERMINOLOGY
+### Point Estimate
