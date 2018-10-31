@@ -2,12 +2,12 @@
 
 ## Geometric Distribution
 - Two possible outcomes - Succcess and failure
--<a href="https://www.codecogs.com/eqnedit.php?latex=q^{n-1}&space;p" target="_blank"><img src="https://latex.codecogs.com/gif.latex?q^{n-1}&space;p" title="q^{n-1} p" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=q^{n-1}&space;p" target="_blank"><img src="https://latex.codecogs.com/gif.latex?q^{n-1}&space;p" title="q^{n-1} p" /></a>
 - Mean and Variance
     - Mean
-        -<a href="https://www.codecogs.com/eqnedit.php?latex=\mu&space;=&space;\frac{1}{p}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu&space;=&space;\frac{1}{p}" title="\mu = \frac{1}{p}" /></a>
-    -Variance
-        -<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma&space;^{2}&space;=&space;\frac{(1-p)}{p^{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma&space;^{2}&space;=&space;\frac{(1-p)}{p^{2}}" title="\sigma ^{2} = \frac{(1-p)}{p^{2}}" /></a>
+        - <a href="https://www.codecogs.com/eqnedit.php?latex=\mu&space;=&space;\frac{1}{p}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mu&space;=&space;\frac{1}{p}" title="\mu = \frac{1}{p}" /></a>
+    - Variance
+        - <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma&space;^{2}&space;=&space;\frac{(1-p)}{p^{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma&space;^{2}&space;=&space;\frac{(1-p)}{p^{2}}" title="\sigma ^{2} = \frac{(1-p)}{p^{2}}" /></a>
 
 ## Negative Binomial Distribution
 
