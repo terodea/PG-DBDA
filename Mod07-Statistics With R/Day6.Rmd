@@ -1,0 +1,129 @@
+---
+title: "Day6"
+author: "Akshay Terode"
+date: "2 November 2018"
+output: html_document
+---
+### Q :- 
+#### A college is trying to determine if there is a significant difference in the mean GMAT score of students from different undergraduate backgrounds who apply to the MBA program. The Excel file GMAT Scores contain data from a sample of students. What conclusion can be reached using ANOVA?
+```{r}
+library(readxl)
+df <- read_excel("/home/student/RCodes/Stats With R/Data_Files/New.xlsx",1,range = "A4:B42")
+av <- aov(Scores ~ Major,data = df)
+anova(av)
+TukeyHSD(av)
+```
+Ho : All the mu are equal. <br>
+     - mu B = mu LA = mu S <br>
+H1 : At least one mu j different <br>
+
+**Result :** We reject Ho at 5% level of significance. <br>
+**Conclusion :** All mean of GMAT scores might not be equal. <br>
+
+### Q30 :-
+#### Using the data in the Excel file Cell Phone Survey, apply ANOVA to determine if the mean response for Value for the Dollar is the same for different types of cell phones.
+```{r}
+library(readxl)
+df2 <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Cell Phone Survey.xlsx",1,range = "A3:G55")
+av2 <- aov(`Value for the Dollar` ~ Type,data = df2)
+anova(av2)
+```
+```{r}
+data("InsectSprays")
+names(InsectSprays)
+
+av3 <- aov(count ~ spray, data = InsectSprays)
+anova(av3)
+TukeyHSD(av3)
+```
+## Two-way ANOVA
+```{r}
+groc <- read.csv("/home/student/RCodes/Stats With R/Datasets/Grocery.csv",header = T)
+anl <- aov(groc$Price ~ groc$Store + groc$Item)
+
+summary(anl)
+```
+
+```{r}
+TukeyHSD(anl,"groc$Store")
+```
+
+```{r}
+library(readxl)
+dffb <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Facebook Survey.xlsx",range = "A3:D36")
+t.test(`Hours online/week` ~ Gender,data = dffb)
+wilcox.test(`Hours online/week` ~ Gender, data = dffb)
+```
+
+# Shapiro.test()
+- In the Excel file Cell Phone Survey, test the hypothesis that the mean responses for Value for the Dollar and Customer Service do not differ by gender.
+```{r}
+#Q20
+cps <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Cell Phone Survey.xlsx",range = "A3:G55")
+shapiro.test(cps$`Value for the Dollar`)
+shapiro.test(cps$`Customer Service`)
+
+wilcox.test(cps$`Value for the Dollar` ~ cps$Gender)
+wilcox.test(cps$`Customer Service` ~ cps$Gender)
+```
+A producer of computer-aided design software for
+the aerospace industry receives numerous calls
+for technical support. Tracking software is used
+to monitor response and resolution times. In addi-
+tion, the company surveys customers who request
+support using the following scale: <br>
+- 0—did not exceed expectations <br>
+- 1—marginally met expectations <br>
+- 2—met expectations <br>
+- 3—exceeded expectations <br> 
+- 4—greatly exceeded expectations. <br> **The questions are as
+follows:** <br>
+**Q1:** Did the support representative explain the pro-
+cess for resolving your problem?<br>
+**Q2:** D id the support representative keep you in-
+formed about the status of progress in resolving
+your problem?<br>
+**Q3:** Was the support representative courteous and
+professional?<br>
+**Q4:** Was your problem resolved?<br>
+**Q5:** W as your problem resolved in an acceptable
+amount of time?<br>
+**Q6:** Overall, how did you find the service provided
+by our technical support department?<br>
+		
+A final question asks the customer to rate the overall
+quality of the product using a scale of 0—very poor;
+1—poor; 2—good; 3—very good; 4—excellent. A
+sample of survey responses and associated resolution
+and response data are provided in the Excel file Cus-
+tomer Support Survey.<br>
+	 **a.** 	 The company has set a service standard of 1 day
+for the mean resolution time. Does evidence ex-
+ist that the response time is more than 1 day?
+How do the outliers in the data affect your result?
+What should you do about them?<br>
+	 **b.** 	 Test the hypothesis that the average service index
+is equal to the average engineer index.<br>
+```{r}
+#Q24
+css <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Customer Support Survey.xlsx",range = "A3:K47")
+shapiro.test(css$`Resolution Time (Days)`)
+
+library(signmedian.test)
+signmedian.test(css$`Resolution Time (Days)`,mu = 1,alternative = 'g')
+
+resolve <- css$`Resolution Time (Days)`[css$`Resolution Time (Days)` < 20]
+mean(resolve)
+t.test(resolve,mu = 1,alternative = 'g')
+
+shapiro.test(css$`Service Index`)
+shapiro.test(css$`Engineer Index`)
+```
+### Q25
+####	 Using the data in the Excel file Ohio Education Performance, test the hypotheses that the mean difference in writing and reading scores is zero and that the mean difference in math and science scores is zero. Use the paired-sample procedure.
+```{r}
+css2 <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Ohio Education Performance.xlsx",range = "A3:G34")
+shapiro.test(css2$Reading)
+shapiro.test(css2$Writing)
+```
+
