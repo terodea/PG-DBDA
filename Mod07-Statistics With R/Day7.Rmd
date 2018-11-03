@@ -1,0 +1,95 @@
+---
+title: "Day7"
+author: "Akshay Terode"
+date: "3 November 2018"
+output: html_document
+---
+### Q 29 :-
+#### A college is trying to determine if there is a significant difference in the mean GMAT score of students from different undergraduate backgrounds who apply to the MBA program. The Excel file GMAT Scores contain data from a sample of students. What conclusion can be reached using ANOVA?
+```{r}
+library(readxl)
+GMAT <- read_xlsx("/home/student/RCodes/Stats With R/Data_Files/New.xlsx",range = "A4:B42")
+GMAT$Major <- factor(GMAT$Major)
+kruskal.test(GMAT$Scores ~ GMAT$Major)
+```
+### Q30 :-
+#### Using the data in the Excel file Cell Phone Survey, apply ANOVA to determine if the mean response for Value for the Dollar is the same for different types of cell phones.
+```{r}
+library(readxl)
+cell <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Cell Phone Survey.xlsx",range ="A3:G55")
+cell$Type <- factor(cell$Type)
+kruskal.test(cell$`Value for the Dollar` ~ cell$Type)
+```
+### Q26 :-
+#### The Excel file Unions and Labor Law Data reports the percent of public- and private-sector employees in unions in 1982 for each state, along with indicators whether the states had a bargaining law that covered public employees or right-to-work laws. <br>
+- a. Test the hypothesis that the mean percent of employees in unions for both the public sector and private sector is the same for states having bargaining laws as for those who do not. <br>
+- b. Test the hypothesis that the mean percent of employees in unions for both the public sector and private sector is the same for states having right-to-work laws as for those who do not. <br>
+```{r}
+library(readxl)
+laws <- read_excel("/home/student/RCodes/Stats With R/Data_Files/Unions and Labor Law Data.xlsx",range =  "A4:E54")
+shapiro.test(laws$`employees in unions`)
+t.test(laws$`employees in unions` ~ laws$`Bargaining laws`)
+t.test(laws$`employees in unions` ~ laws$`Right-to-Work Laws`)
+
+
+shapiro.test(laws$`employees in unions__1`)
+wilcox.test(laws$`employees in unions__1` ~ laws$`Bargaining laws`)
+wilcox.test(laws$`employees in unions__1` ~ laws$`Right-to-Work Laws`)
+
+```
+#Chi-Square Test for Goodness of Fit
+
+```{r}
+O <- c(135,50,40,15)
+E <- c(135,45,45,15)
+chisqStat <- sum((O-E)^2/E)
+pchisq(chisqStat,df = 3,lower.tail = F)
+```
+```{r}
+x <-c(9,3,3,1)
+null.probs <- x/16
+
+ofs <- c(135,50,40,15)
+chisq.test(ofs,p=null.probs)
+```
+### Q32 :-
+#### A car manufacturing firm is bringing out a new model. To figure out its advertising campaign, they want to determine whether the model appeal will be dependent on a particular age group. A sample of a customer survey revealed the following: What can the manufacturer conclude?
+```{r}
+liked <- c(140,70,70,25)
+disliked <- c(60,40,30,65)
+a <- rbind(liked,disliked)
+a
+colnames(a) <-c("<20","20-40","40-50",">50")
+a
+chisq.test(a)
+```
+### Q33:-
+#### A survey of college students determined the prefer- ence for cell phone providers. The following data were obtained: Can we conclude that gender and cell phone provider are independent? If not, what implications does this have for marketing?
+```{r}
+male <- c(12,39,27)
+female <- c(8,22,24)
+b <- rbind(male,female)
+colnames(b) <- c("T-Mobile","AT&T","Verizon")
+b
+chisq.test(b)
+```
+### Q34 :-
+#### For the data in the Excel file Accounting Professionals, perform a chi-square test of independence to determine if age group is independent of having a graduate degree.
+```{r}
+library(readxl)
+acct <- cAccounting Professionals.xlsx",range =  "A3:G30")
+tbl <- table(acct$`Graduate Degree?`,acct$`Age Group`)
+chisq.test(tbl)
+```
+### Q36 :-
+#### For the data in the Excel file New Account Processing, perform chi-square tests for independence to determine if certification is independent of gender, and if ­certification is independent of having prior industry background.
+```{r}
+library(readxl)
+nacct <- read.csv("/home/student/RCodes/Stats With R/Data_Files/New Account Processing.csv",header = T)
+ntbl <- table(nacct$Certified,nacct$Gender)
+chisq.test(ntbl)
+
+ntbl1 <- table(nacct$Certified,nacct$Prior.Background)
+chisq.test(ntbl1)
+```
+
