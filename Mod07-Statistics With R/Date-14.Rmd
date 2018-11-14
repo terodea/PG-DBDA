@@ -1,0 +1,31 @@
+---
+title: "JSON_XML Assignment"
+output: html_notebook
+---
+```{r}
+library(XML)
+filePath <- "/home/student/RCodes/supplier.xml"
+df <- xmlToDataFrame(filePath)
+```
+
+## Q2
+```{r}
+library(XML)
+filePath2 <- "/home/student/RCodes/orders.xml"
+document <- xmlTreeParse(filePath2,useInternalNodes = TRUE)
+rootNode <- xmlRoot(document)
+
+names(rootNode[[1]])
+order_key <- xpathSApply(rootNode,"//O_ORDERKEY",xmlValue)
+order_Date <- xpathSApply(rootNode,"//O_ORDERDATE",xmlValue)
+order_Date <- as.Date(order_Date)
+total_price <- xpathSApply(rootNode,"//O_TOTALPRICE",xmlValue)
+total_price <- as.numeric(total_price)
+ords <- data.frame(order_key,order_Date,total_price,stringsAsFactors = F)
+```
+## Q3
+```{r}
+
+```
+
+## Corelation
