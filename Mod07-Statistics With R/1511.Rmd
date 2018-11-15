@@ -1,0 +1,125 @@
+---
+title: "Date-15"
+author: "Akshay Terode"
+date: "15 November 2018"
+output: html_document
+---
+## The managing director of a consulting group has the following monthly data on total overhead costs and professional labor hours to bill to clients: 4
+a.	 Develop a trendline to identify the relationship between billable hours and overhead costs.
+b.	 Interpret the coefficients of your regression model. Specifically, what does the fixed component of the model mean to the consulting firm?
+c.	 If a special job requiring 1,000 billable hours that would contribute a margin of $38,000 before overhead was available, would the job be attractive?
+
+```{r}
+overheads <- c(365,400,430,477,560,587)*1000
+billable <- c(3,4,5,6,7,8)*1000
+cor(overheads,billable)
+plot(overheads,billable)
+fitLm <- lm(overheads ~ billable)
+fitLm
+```
+## Regresssion Equation
+overheads = b0+b1 billable <br>
+overheads = 212590.48 + 46.77 billable
+
+```{r}
+#c
+212590.48 + 46.77*1000
+```
+
+```{r}
+#Consider medv as response
+library(MASS)
+data("Boston")
+lm2 <- lm(medv ~ .,data = Boston)
+lm2
+summary(lm2)
+```
+### Observation :
+p-value of ANOVA : 2.2 * 10^-16
+Hence the model is valid.
+```{r}
+library(AppliedPredictiveModeling)
+data(concrete)
+head(concrete)
+lm3 <- lm(CompressiveStrength ~.,data = concrete)
+plot(CompressiveStrength ~.,data = concrete)
+lm3
+summary(lm3)
+```
+## Q16 - 
+#### Using the data in the Excel file Credit Card Spending, develop a multiple linear regression model for estimating the average credit card expenditure as a function of both the income and family size. Predict the average expense of a family that has two members and an income of $188,000 per annum, and another that has three members and an income of $39,000 income per annum.
+```{r}
+library(readxl)
+cds <- read_xlsx("/home/student/RCodes/Stats With R/Data_Files/Credit Card Spending.xlsx",range = "A3:C52")
+lm4 <- lm(CC_Exp ~.,data = cds)
+lm4
+summary(lm4)
+```
+## Linear Regression Equation
+0.907367 + 0.025232 * Income - 0.310622 * FamilySize
+```{r echo=FALSE}
+#Predict the average expense of a family that has two members and an income of $188,000 per annum, and another that has three members and an income of $39,000 income per annum.
+a1 <- 0.907367 + 0.025232 * 188 - 0.310622 *2
+a2 <-0.907367 + 0.025232 * 39 - 0.310622 *3
+print(paste0("The average expense of family having 2 members and an income of $188,000 per annum is -> ",a1))
+print(paste0("The average expense of family having 3 members and an income of $39,000 per annum is -> ",a2))
+```
+### Assumptions Of Regression
+* Normality : Errors are Normally Distribuited with mean zero.
+* Independence : Errors are independent.
+* Linearity : Mean of dependent variable Y is linearly related to Xis.
+* Homoscedasticity : Errors have constant variance.
+
+
+
+### Q18:Pg 296
+#### 	 The Excel file Salary Data provides information on current salary, beginning salary, previous experience (in months) when hired, and total years of education for a sample of 100 employees in a firm. 
+* a.	 Develop a multiple regression model for predicting current salary as a function of the other variables.
+* b.	 Find the best model for predicting current salary using the t-value criterion.
+```{r}
+library(readxl)
+sal <- read_xlsx("/home/student/RCodes/Stats With R/Data_Files/Salary Data.xlsx",range = "A3:D103")
+fitlm.2 <- lm(`Current Salary` ~ ., data = sal)
+fitlm.2
+summary(fitlm.2)
+```
+
+```{r}
+fitlm.3 <- lm(`Current Salary` ~. - `Previous Experience (months)`,data = sal)
+fitlm.3
+summary(fitlm.3)
+```
+#### Conclusion
+* H0 : beta1 =  0 () 
+* H1 : beta1 != 0 (REJECT)
+-----------------------
+* H0 : beta2 =  0 (REJECT)
+* H1 : beta2 != 0 ()
+-----------------------
+* H0 : beta3 =  0 ()
+* H1 : beta3 != 0 (REJECT)
+------------------------
+* H0 : beta4 =  0 (REJECT)
+* H1 : beta4 != 0 ()
+
+
+### Q20
+##### Using the data in the Excel file Freshman CollegeData, identify the best regression model for predicting the first year retention rate. For the model you select, conduct further analysis to check for significance of the independent variables and for multicollinearity.
+```{r}
+library(readxl)
+df <- read_xlsx("/home/student/RCodes/Stats With R/Data_Files/Freshman College Data.xlsx",range = "A3:H47")
+lmfit <- lm(`1st year retention rate` ~.,data = df)
+summary(lmfit)
+```
+### Plotting a pair plot
+```{r}
+pairs(df[,-c(1,8)])
+```
+
+#### Check for multicolinearity
+
+```{r}
+fit.lm <- lm(`1st year retention rate` ~ Year + `Avg ACT`,data = df)
+summary(fit.lm)
+```
+
