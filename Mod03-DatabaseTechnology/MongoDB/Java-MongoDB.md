@@ -167,3 +167,10 @@
     } 
     }
 ```
+#### NOTE:-
+When viewing the database it is necessary to switch to the new database i.e.
+-
+```
+    use myDb
+    show collections
+```
