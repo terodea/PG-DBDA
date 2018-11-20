@@ -1,43 +1,105 @@
-1. SELECT * from employee;
--
-    ```
-        db.employee.find()
-    ```
-2. SELECT * from employee WHERE Title = 'Sales Representative'
--
-    ```
-        db.employee.find({"Title":"Sales Representative"})
-    ```
-3. SELECT * FROM employee WHERE Title = 'Sales Represntative' AND LastName='Suyama'
--
-    ```
-        db.employee.find({"Title":"Sales Represntative" && "LastName":"Suyama"})
-    ```
--
-    ```
-        db.employee.find({"Title":"Sales Represntative","LastName":"Suyama"})
-    ```
-4. SELECT FirstName FROM employee
--
-    ```
-        db.employee.find({},{FirstName:true})
-    ```
--
-    ```
-        db.employee.find({},{FirstName:1})
-    ```
-5. SELECT FirstName, LastName FROM employee
--
-    ```
-        db.employee.find({},{FirstName:true,LastName:true,_id:false})
-    ```
-6. SELECT * FROM employee WHERE Extension between 3000 and 9000
--
-    ```
-        db.employee.find({"Extension":{$gt:3000,$lt:9000},{})
-    ```
+# DAY-1 MongoDB
 # CREATING COLLECTIONS IN MongoDB
+#### Insert one document at a time.
+- db.collections.insertOne(): Insert a single document into a collection.
+- General Syntax: 
+```
+db.collection.insertOne(
+   <document>,
+   {
+      writeConcern: <document>
+   }
+)
+```
+-- General Syntax: 
+```
+try{
+    db.collection.insertOne(
+    <document>,
+    {
+        writeConcern: <document>
+    });
+}catch(e){
+    print(e);
+}
+```
+-
+| Parameter   |      Type      |  Description |
+|----------|:-------------:|------:|
+| **document** |  *document*   | An array of documents to insert into the collection.(analogous to row in RDBMS) |
+| **writeConcern** |    *document*   |   Optional. A document expressing the write concern. Omit to use the default write concern. |
+- Example: Insert Document without Specifying an _id Field.
+```
+try{
+    db.employee.insertOne({
+        "EmployeeID": 1,
+        "LastName": "Davolio",
+        "FirstName": "Nancy",
+        "Title": "Sales Representative",
+        "TitleOfCourtesy": "Ms.",
+        "BirthDate": "1948-12-08 00:00:00.000",
+        "HireDate": "1992-05-01 00:00:00.000",
+        "Address": "507 - 20th Ave. E.",
+    });
+}catch(e){
+    print(e);
+}
+```
+- Example: Insert Document Specifying an _id Field.
+```
+try{
+    db.employee.insertOne({
+        "_id_": 1,
+        "LastName": "Davolio",
+        "FirstName": "Nancy",
+        "Title": "Sales Representative",
+        "TitleOfCourtesy": "Ms.",
+        "BirthDate": "1948-12-08 00:00:00.000",
+        "HireDate": "1992-05-01 00:00:00.000",
+        "Address": "507 - 20th Ave. E.",
+    });
+}catch(e){
+    print(e);
+}
+```
+- ***NOTE : *** "_id" should be unique to avoid keyerror.
+
+#### Insert many documents at a time.
+- db.collection.insertMany(): Inserts multiple documents into a collection.
+- Inserting a document can be done in two ways :
+    - Insert Several Document without Specifying an _id Field.
+    - Insert Several Document Specifying an _id Field.
+- General Syntax:
+```
+    db.collection.insertMany(
+    [ <document 1> , <document 2>, ... ],
+    {
+        writeConcern: <document>,
+        ordered: <boolean>
+    }
+    )
+```
+- Making querries handling exception
+-
+```
+try{
+    db.collection.insertMany(
+        [ <document 1> , <document 2>, ... ],
+        {
+            writeConcern: <document>,
+            ordered: <boolean>}
+        );
+}catch(e){
+    print(e);
+}
+```
 - 
+| Parameter   |      Type      |  Description |
+|----------|:-------------:|------:|
+| **document** |  *document*   | An array of documents to insert into the collection.(analogous to row in RDBMS) |
+| **writeConcern** |    *document*   |   Optional. A document expressing the write concern. Omit to use the default write concern. |
+| **ordered** | *boolean* |    Optional. A boolean specifying whether the mongod instance should perform an ordered or unordered insert. Defaults to true. |
+-
     ```
         db.employee.insertMany([{
             "_id": 1,
@@ -149,7 +211,45 @@
         }
     ])
     ```
-
+## Running Querries
+1. SELECT * from employee;
+-
+    ```
+        db.employee.find()
+    ```
+2. SELECT * from employee WHERE Title = 'Sales Representative'
+-
+    ```
+        db.employee.find({"Title":"Sales Representative"})
+    ```
+3. SELECT * FROM employee WHERE Title = 'Sales Represntative' AND LastName='Suyama'
+-
+    ```
+        db.employee.find({"Title":"Sales Represntative" && "LastName":"Suyama"})
+    ```
+-
+    ```
+        db.employee.find({"Title":"Sales Represntative","LastName":"Suyama"})
+    ```
+4. SELECT FirstName FROM employee
+-
+    ```
+        db.employee.find({},{FirstName:true})
+    ```
+-
+    ```
+        db.employee.find({},{FirstName:1})
+    ```
+5. SELECT FirstName, LastName FROM employee
+-
+    ```
+        db.employee.find({},{FirstName:true,LastName:true,_id:false})
+    ```
+6. SELECT * FROM employee WHERE Extension between 3000 and 9000
+-
+    ```
+        db.employee.find({"Extension":{$gt:3000,$lt:9000},{})
+    ```
 # SECOND HALF
 -
     ```        
