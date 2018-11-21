@@ -1,3 +1,4 @@
+# Array
 ## Array Operations
 When you update in an Array it is replace(UPSERT).
 Whereas in Document it is append.if value already exists and UPSERT when value doesn't exists.
