@@ -1,0 +1,22 @@
+# Practical Machine Learning 
+**Time - (60)Hrs**
+- Supervised and Unsupervised Learning 
+- Uses of Machine learning 
+- Clustering 
+    - K means 
+    - Hierarchical Clustering 
+- Decision Trees 
+- Oblique trees 
+- Classification problems 
+- Bayesian analysis 
+    - Naïve Bayes classifier 
+- Random forest
+- Gradient boosting Machines
+- Association rules learning 
+- Apriori and FP-growth algorithms
+- Support Vector Machines 
+- Linear and Non liner classification
+- ARIMA 
+- ML in real time 
+- Neural Networks and its application 
+- Neural Net & its applications
