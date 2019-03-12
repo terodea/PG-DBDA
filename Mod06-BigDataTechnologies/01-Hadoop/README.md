@@ -1,5 +1,6 @@
 ## HADOOP
 
+## INSTALLATION
 ### Setting Up HADOOP for the first time.
 
 ### STEP-1 : Install JAVA if not installed.
