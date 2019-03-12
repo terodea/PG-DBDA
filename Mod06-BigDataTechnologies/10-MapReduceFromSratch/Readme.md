@@ -34,7 +34,7 @@ We need 2 programs "mapper.c" and "reducer.c".
 ### STEP 4:- RESULTS !!
 -
   ```
-    hadoop@namenode2:~$ hadoop fs -ls  /wordcount-out
+    hadoop@namenode:~$ hadoop fs -ls  /wordcount-out
     Found 2 items
     -rw-r--r--   3 hadoop hadoop          0 2019-03-11 15:50 /wordcount-out/_SUCCESS
     -rw-r--r--   3 hadoop hadoop      11685 2019-03-11 15:50 /wordcount-out/part-00000
