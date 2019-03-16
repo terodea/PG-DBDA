@@ -4,6 +4,9 @@
 #define BUFFER_SIZE     1024  
 #define DELIM   "\t"
 int main(int argc, char *argv[]){
+ /*
+  Reducer Component of Hadoop Map Reduce
+ */
 char strLastKey[BUFFER_SIZE];
  char strLine[BUFFER_SIZE];
  int count = 0;
